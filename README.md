@@ -41,21 +41,18 @@ ssh ucbtcdr@transfer02
 
 **4th**: Create a bash submission script to index your genome file (Run_index.sh: example below on my login):
 
-[a relative link]Run_index.sh
+[Run_index.sh](Run_index.sh)
 
 qsub Run_index.sh
 
 
 **5th**: Create bach submission script to run rMATS:
 
-#!/bin/bash -l
-#$ -l h_rt=30:0:0
-#$ -l mem=10G
-#$ -N rMATS_run
-#$ -pe mpi 4
-#$ -wd /home/ucbtcdr/Scratch/AS_Vespa/
-#$ -e /home/ucbtcdr/Scratch/AS_Vespa/
+[Run_rMATS.sh](Run_rMATS.sh)
 
+qsub Run_rMATS.sh
+
+The command is:
 rmats.py --nthread 4 --s1 Trial_1.txt --s2 Trial_2.txt --gtf Vespa_crabro.gtf -t paired --readLength 150 --od /home/ucbtcdr/Scratch/AS_Vespa/output --tmp /home/ucbtcdr/Scratch/AS_Vespa/tmp_output --bi /home/ucbtcdr/Scratch/AS_Vespa/Genome_index_2/GenomeDir 
 
 Where 'Trials' are the full path to the fastq files (here i show forward (1) and reverse (2) reads for a Queen (VCQ) and Worker (VC_W) of Vespa crabro:
