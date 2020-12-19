@@ -41,15 +41,7 @@ ssh ucbtcdr@transfer02
 
 **4th**: Create a bash submission script to index your genome file (Run_index.sh: example below on my login):
 
-#!/bin/bash -l
-#$ -l h_rt=1:0:0
-#$ -l mem=10G
-#$ -N STAR_index
-#$ -pe mpi 4
-#$ -wd /home/ucbtcdr/Scratch/AS_Vespa/
-#$ -e /home/ucbtcdr/Scratch/AS_Vespa/
-
-STAR --runMode genomeGenerate --genomeFastaFiles V.crabro.RM.hymenoptera.fasta --genomeSAindexNbases 12 --runThreadN 4
+Run_index.sh
 
 qsub Run_index.sh
 
