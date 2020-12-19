@@ -48,7 +48,7 @@ qsub Run_index.sh
 
 **5th**: Create bach submission script to run rMATS:
 
-[Run_rMATS.sh](Run_rMATS.sh)
+[Run_rMATS.sh](Run_rmats.sh)
 
 qsub Run_rMATS.sh
 
