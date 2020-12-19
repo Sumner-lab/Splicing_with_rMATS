@@ -69,6 +69,6 @@ Trial_2.txt : /home/ucbtcdr/Scratch/AS_Vespa/Files_diff_name/VC_W1_1.fastq:/home
 \
 **OUTPUT (folder output)**
 
-See explanation : https://github.com/Xinglab/rmats-turbo#usage . 
+See explanation : https://github.com/Xinglab/rmats-turbo##output . 
 
 Basically you get a significant score for each alternative event (Intron retention (RI), Skipping exon (SE), mutually exclusive exon (MXE), and others).
