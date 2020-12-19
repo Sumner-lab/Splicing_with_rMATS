@@ -11,6 +11,7 @@ It takes a GTF (not GFF3, you may need to convert it), genome (indexed in STAR, 
 
 **Second**:
 conda install -c conda-forge -c bioconda rmats=4.1.0
+
 conda install STAR
 
 **Or** install from binaries, if the above does not work (then make sure you put these in your $PATH). e.g. STAR:
@@ -20,13 +21,17 @@ STAR --version
 
 If this does not work, maybe you have sucessfully downloaded STAR, but it is not in your $PATH 
 I make sure in my ~/.bash_profile I have the following line
+
 export PATH=$PATH:/home/ucbtcdr/bin
-Then I can cp my STAR executable into /home/ucbtcdr/bin . Then it should be able to find it on the command line (may need to close and reopen terminal)
+
+Then I can cp my STAR executable into /home/ucbtcdr/bin . Then it should be able to find it on the command line (.. you may need to close and reopen terminal, or source .bash_profile)
 
 **Third**, mount RDS onto myriad (use your own UCL ID, and enter password):
+
 ssh ucbtcdr@transfer02
 
 **4th**: Create a bash submission script to index your genome file (Run_index.sh: example below on my login):
+
 #!/bin/bash -l
 #$ -l h_rt=1:0:0
 #$ -l mem=10G
@@ -40,6 +45,7 @@ STAR --runMode genomeGenerate --genomeFastaFiles V.crabro.RM.hymenoptera.fasta -
 qsub Run_index.sh
 
 **5th**: Create bach submission script to run rMATS:
+
 #!/bin/bash -l
 #$ -l h_rt=30:0:0
 #$ -l mem=10G
@@ -52,11 +58,15 @@ rmats.py --nthread 4 --s1 Trial_1.txt --s2 Trial_2.txt --gtf Vespa_crabro.gtf -t
 
 Where 'Trials' are the full path to the fastq files (here i show forward (1) and reverse (2) reads for a Queen (VCQ) and Worker (VC_W) of Vespa crabro:
 
+
 Trial_1.txt : /home/ucbtcdr/Scratch/AS_Vespa/Files_diff_name/VCQ2_1.fastq:/home/ucbtcdr/Scratch/AS_Vespa/Files_diff_name/VCQ2_2.fastq
+
 Trial_2.txt : /home/ucbtcdr/Scratch/AS_Vespa/Files_diff_name/VC_W1_1.fastq:/home/ucbtcdr/Scratch/AS_Vespa/Files_diff_name/VC_W1_2.fastq
 
 --bi  is the path to the genome index folder created by STAR in step 4. In my run it was called GenomeDir
 
 **OUTPUT (folder output)**
 
+See explanation : https://github.com/Xinglab/rmats-turbo#usage . 
 
+Basically you get a significant score for each alternative event (Intron retention (RI), Skipping exon (SE), mutually exclusive exon (MXE), and others).
