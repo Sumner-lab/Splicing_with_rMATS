@@ -41,7 +41,7 @@ ssh ucbtcdr@transfer02
 
 **4th**: Create a bash submission script to index your genome file (Run_index.sh: example below on my login):
 
-Run_index.sh
+[a relative link]Run_index.sh
 
 qsub Run_index.sh
 
