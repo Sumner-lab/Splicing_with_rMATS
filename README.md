@@ -7,8 +7,12 @@ It takes a GTF (not GFF3, you may need to convert it), genome (indexed in STAR, 
 
 **Myriad installation:**
 
+
 <br/>
-**First**, you need to install **conda** on myriad. https://docs.conda.io/en/latest/miniconda.html  Try to do it yourself first, then ask me if there are any hickups.
+**First**, 
+
+you need to install **conda** on myriad. https://docs.conda.io/en/latest/miniconda.html  Try to do it yourself first, then ask me if there are any hickups.
+
 
 <br/>
 **Second**:
